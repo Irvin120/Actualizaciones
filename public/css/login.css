@@ -1,0 +1,285 @@
+:root{
+    --negro:#434343;
+    --azul1:#00C6FB;
+    --azul2:#0090F3;
+    --blanco:#fff;
+    --border: 1px solid rgba(67, 67, 67, 0.445);  
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+    max-width: 1440px;
+    
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--blanco);
+}
+
+/* ------------------MAIN----------------- */
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+main .background{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+    position: absolute;
+    overflow: hidden;
+}
+
+
+.background .img1{
+    position: absolute;
+    top: -164px;
+    left: -122px;
+    width: 36rem;
+    height: auto;
+}
+
+.background .img2{
+    position: absolute;
+    bottom: 5px;
+    right: 9px;
+    width: 17rem;
+    height: auto;
+}
+.background .img3{
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    width: 22rem;
+    height: auto;
+}
+
+.background .img4{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    right: 0;
+}
+
+.background .img5{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    top: 0;
+    right: 0;
+}
+
+
+
+/* Login */
+
+/* LOGO SITE */
+
+main .login{
+    width: 50%;
+    height: 30rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 10;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgba(67, 67, 67, 0.445);
+    
+}
+
+
+
+.login .login-logo{
+    width: 32%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .login-logo img{
+    width: 9.4rem;
+    height: auto;
+    margin: 0 0 2rem 0;
+}
+
+
+.login .login-logo h1{
+    font-size: 3rem;
+    font-weight: 500;
+    color: #434343;
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    position: relative;
+}
+
+.login .login-logo h1::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #29323C 0%, #3C4A83 100%);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* --------------------------- */
+
+/* FORMULARIO INICIO SESIÓN */
+
+.form{
+    width: 55%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form h2{
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;    
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    position: relative;
+}
+
+
+.form img.user-img{
+    width: 3rem;
+    height: auto;
+    margin: 0 auto 1.5rem;
+}
+
+
+.form h2:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #29323C 0%, #3C4A83 100%);
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.form form{
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form form input[type="text"]{
+    width: 65%;
+    font-size: .9rem;
+    color: var(--negro);
+    outline: none;
+    border: none;
+    margin: .6rem .5rem;
+    padding: .4rem .5rem;
+    border-bottom: 2px solid var(--azul1);
+    transition: .3s;
+}
+
+.form form input[type="text"]:focus{
+    width: 70%;
+}
+
+.form form input[type="password"]{
+    width: 65%;
+    font-size: .9rem;
+    color: var(--negro);
+    outline: none;
+    border: none;
+    margin: .6rem .5rem;
+    padding: .4rem .5rem;
+    border-bottom: 2px solid var(--azul1);
+    transition: .3s;
+}
+
+.form form input[type="password"]:focus{
+    width: 70%;
+}
+
+
+.form form input[type="email"]{
+    width: 65%;
+    font-size: .9rem;
+    color: var(--negro);
+    outline: none;
+    border: none;
+    margin: .6rem .5rem;
+    padding: .4rem .5rem;
+    border-bottom: 2px solid var(--azul1);
+    transition: .3s;
+}
+
+.form form input[type="email"]:focus{
+    width: 70%;
+}
+
+.form form input[type="submit"]{
+    width: 50%;
+    margin-top: 2rem;
+    font-size: .9rem;
+    color: var(--blanco);
+    padding: .6rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+    transition: .3s;
+}
+
+
+.form form input[type="submit"]:hover{
+    transform: scale(1.1);
+}
+
+
+
+.form form .show-password{
+    width: 65%;
+    display: flex;
+    align-items: flex-start;   
+    margin-top: .5rem;
+}
+
+.form form .show-password label{
+    font-size: .8rem;
+    color: #848484;
+    margin-left: .3rem;
+}
+

@@ -1,0 +1,252 @@
+:root{
+    --negro:#434343;
+    --azul1:#00C6FB;
+    --azul2:#0090F3;
+    --blanco:#fff;
+    --border: 1px solid rgba(67, 67, 67, 0.445);
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+    max-width: 1440px;
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--blanco);
+}
+
+/* ----------------HEADER---------------------- */
+header{
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 2px #434343;
+}
+
+header .div-logo{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+header .div-logo img{
+    width: 1.4rem;
+    height: auto;
+    margin: 0 .5rem 0 1.5rem;
+}
+
+
+header .div-logo h1{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #434343;
+}
+
+header .div-user{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+header .div-user a,header .div-user button{
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #04befe;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+header .div-user> a img,header .div-user button img{
+    width: 50%;
+    height: auto;
+}
+
+header .div-user a:hover{
+    transform: scale(1.1);
+}
+
+header .div-user button:hover{
+  transform: scale(1.1);
+}
+
+.form-search {
+    width: 100%;
+    height: auto;
+    display: flex;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.form-search form{
+  display: flex;
+}
+
+
+.form-search form input[type="text"]{
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  border: 2px solid #04befe;
+  padding-left:1rem;
+  font-size: 1.5rem;
+  padding: .5rem 3rem;
+}
+
+.form-search form button[type="submit"]{
+    border-radius:0 20px  20px  0;
+    padding:0 2rem;
+    outline: none;
+    border: 2px solid #04befe;
+    background: linear-gradient(180deg, #00C6FB 0%, #0091F3 100%);
+}
+
+/* ------------------------------------------ */
+
+/* -----------------ESTILOS MAIN------------ */
+main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.container{
+    width: 100%;
+}
+
+.section-search{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h2{
+    font-size: 2rem;
+    color: #434343;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.content-table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.content-table  table{
+    width :calc(90% - 4rem);
+    height:fit-content;
+    overflow-y: scroll;
+    border-collapse:  collapse;
+    margin: 0 2rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    border: 1px solid #0091F3;
+  }
+  
+table caption{
+    font-size: .8rem;
+    font-weight: 600;
+    color: #434343;
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  table tr th{
+    width: 50%;
+    height: fit-content;
+    font-size: .9rem;
+    color: var(--blanco);
+    padding: 1rem 0;
+    background: linear-gradient(180deg, #00C6FB 0%, #0091F3 100%);
+    text-align: center;
+  }
+  
+  table tr{
+    transition: .1s;
+    color: #434343;
+  }
+  
+  table tr:hover{
+    background: linear-gradient(180deg, #00C6FB 0%, #0091F3 100%);
+    color: var(--blanco);
+    cursor: pointer;
+  }
+  
+  
+  
+  table tr td{
+    font-size: 1rem;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  
+.hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.justify-between.flex-1 {
+    width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.justify-between.flex-1 span{
+    border-radius: 10px;
+    color: #0091F3;
+    border:1px solid #0090F3;
+    background-color: #fff;
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+}
+
+.justify-between.flex-1 a{
+    border-radius: 10px;
+    background-color: #0091F3;
+    color: #fff;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    margin: 0 .5rem;
+    cursor: pointer;
+}
