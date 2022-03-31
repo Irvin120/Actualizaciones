@@ -15,9 +15,10 @@ class SessionsController extends Controller
             return back()->withErrors([
                 'message'=>'Contraseña o Correo Incorrectos'
             ]);
-        } 
-        
-        return redirect()->to('/');
+        }
+      //modificadda irvin
+      //return redirect()->to('/');
+        return redirect()->to('/login');
     }
 
 
