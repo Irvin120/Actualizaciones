@@ -18,7 +18,7 @@ class SessionsController extends Controller
         }
       //modificadda irvin
       //return redirect()->to('/');
-        return redirect()->to('/login');
+        return redirect()->to('/');
     }
 
 

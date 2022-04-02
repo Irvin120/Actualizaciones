@@ -24,6 +24,98 @@ class TemperaturaController extends Controller
         return view('auth.search',compact('temperaturas','texto'));
     }
 
+
+    //<--------------------------------------------Tablas miguel---------------------------------------------------------->
+
+
+    public function consultaDia()
+    {
+        $temperatura = Temperatura::all();
+        $datos = array();
+        $datos['name'] = 'Temperatura';
+        $datos['data'] = [];
+
+        $horas = array();
+        $horas = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos['data'],$value['value']);
+            $objHora = date_create($value['recorded']);
+            $dataHora = date_format($objHora,'H:i:s');
+            array_push($horas,$dataHora);
+        }
+        $datosGraficas = array($datos,$horas);
+        return json_encode($datosGraficas);
+    }
+
+    public function consultaSemana()
+    {
+        $temperatura = Temperatura::all();
+        $datos2 = array();
+        $datos2['name'] = 'Temperatura';
+        $datos2['data'] = [];
+
+        $fecha = array();
+        $fecha = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos2['data'],$value['value']);
+            $objFecha = date_create($value['recorded']);
+            $datafecha = date_format($objFecha,'D');
+            array_push($fecha,$datafecha);
+        }
+        $datosGraficas2 = array($datos2,$fecha);
+        return json_encode($datosGraficas2);
+    }
+
+    public function consultaMes()
+    {
+        $temperatura = Temperatura::all();
+        $datos3 = array();
+        $datos3['name'] = 'Temperatura';
+        $datos3['data'] = [];
+
+        $mes = array();
+        $mes = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos3['data'],$value['value']);
+            $objmes = date_create($value['recorded']);
+            $datames = date_format($objmes,'M');
+            array_push($mes,$datames);
+        }
+        $datosGraficas3 = array($datos3,$mes);
+        return json_encode($datosGraficas3);
+    }
+
+
+    public function consultaYear()
+    {
+        $temperatura = Temperatura::all();
+        $time = Temperatura::all();
+        $datos4['name'] = 'Temperatura';
+        $datos4['data'] = [];
+
+        $year = array();
+        $year = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos4['data'],$value['value']);
+        }
+
+        foreach($time as $value){
+            $objyear = date_create($value['recorded']);
+            $datayear = date_format($objyear,'Y');
+            array_push($year,$datayear);
+        }
+        $datosGraficas3 = array($datos4,$year);
+        return json_encode($datosGraficas3);
+    }
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *

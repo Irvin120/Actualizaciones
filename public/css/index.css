@@ -246,8 +246,7 @@ main .indicators{
 
   svg {
     position: relative;
-    width: 100px;
-    height: 100px;
+    
     z-index: 100;
   }
 

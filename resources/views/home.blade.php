@@ -119,30 +119,33 @@
             </div>
 
           </div>
+
+
+          <!--  GRAFICAS -->
           <div class="content-grafic">
-            <!-- Grafica Horas -->
-            <canvas id="myChartHrs"width="100%" height="100%"></canvas>
+            <!-- Grafica lineas Horas -->
+            <div id="graficHrs" style="width: 100%;"></div>
 
-            <!-- Grafica Semana -->
-            <canvas id="myChartSem" style="display: none;" width="100%" height="100%"></canvas>
+            <!-- Grafica lineas Semana -->
+            <div id="graficSem" style="width: 100%;"></div>
 
-            <!-- Grafica Mes -->
-            <canvas id="myChartMes" style="display: none;" width="100%" height="100%"></canvas>
+            <!-- Grafica lineas Mes -->
+            <div id="graficMes" style="width: 100%;"></div>
 
-            <!-- Grafica Anio -->
-            <canvas id="myChartAnio" style="display: none;" width="100%" height="100%"></canvas>
+            <!-- Grafica lineas Anio -->
+            <div id="graficYear" style="width: 100%;"></div>
 
-            <!-- Grafica Horas -->
-            <canvas id="myBarHrs" style="display: none;" width="100%" height="100%"></canvas>
+            <!-- Grafica barras Horas -->
+            <div id="barHoras" style="width: 100%;"></div>
 
-            <!-- Grafica Semana -->
-            <canvas id="myBarSem" style="display: none;" width="100%" height="100%"></canvas>
+            <!-- Grafica  barras Semana -->
+            <div id="barSem" style="width: 100%;"></div>
 
-            <!-- Grafica Mes -->
-            <canvas id="myBarMes" style="display: none;" width="100%" height="100%"></canvas>
+            <!-- Grafica barras Mes-->
+            <div id="barMes" style="width: 100%;"></div>
 
-            <!-- Grafica Anio -->
-            <canvas id="myBarAnio" style="display: none;" width="100%" height="100%"></canvas>
+            <!-- Grafica barras Anio -->
+            <div id="barYear" style="width: 100%;" ></div>
 
              <!-- Tabla Horas -->
             <table id="myTableHrs" style="display: none;" width="100%" height="100%" >
@@ -154,17 +157,16 @@
 
             </table>
 
-            <!-- Tabla Meses -->
+            <!-- Tabla Meses-->
             <table id="myTableMes"  style="display: none;"  width="100%" height="100%" class="rwd-table">
 
             </table>
 
-            <!-- Tabla Anio -->
+            <!-- Tabla Anio-->
             <table id="myTableAnio"  style="display: none;"  width="100%" height="100%" class="rwd-table">
 
             </table>
           </div>
-
 
         </section>
 
@@ -234,13 +236,342 @@
 
     </main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-    <script src="{{ asset('js/chart.min.js')}}"></script>
+    <!-- SCRIPT -->
+
+    <!-- Grafica de lineas Horas-->
+    <script>
+        var options = {
+          series: [],
+          chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        title: {
+          text: '',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: [],
+        }
+        };
+        var grafica1 = new ApexCharts(document.querySelector("#graficHrs"), options);
+        grafica1.render();
+
+        window.setInterval(function() {
+            $.get('{{ route('dia') }}', function (response) {
+                    var data = JSON.parse(response);
+                    grafica1.updateOptions({
+                        xaxis: {
+                            categories: data[1],
+                        },
+                        series: [data[0]]
+                    });
+                });
+        },2000);
+  </script>
+  <!-- Graficas de lineas Semanas -->
+  <script>
+      var options = {
+        series: [],
+        chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      title: {
+        text: '',
+        align: 'left'
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5
+        },
+      },
+      xaxis: {
+        categories: [],
+      }
+      };
+      var grafica2 = new ApexCharts(document.querySelector("#graficSem"), options);
+      grafica2.render();
+
+      window.setInterval(function() {
+          $.get('{{ route('semana') }}', function (response) {
+                  var data = JSON.parse(response);
+                  grafica2.updateOptions({
+                      xaxis: {
+                          categories: data[1],
+                      },
+                      series: [data[0]]
+                  });
+              });
+      },2000);
+  </script>
+
+  <!-- Grafica de linesa mes  -->
+  <script>
+      var options = {
+        series: [],
+        chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      title: {
+        text: '',
+        align: 'left'
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5
+        },
+      },
+      xaxis: {
+        categories: [],
+      }
+      };
+      var grafica3 = new ApexCharts(document.querySelector("#graficMes"), options);
+      grafica3.render();
+
+      window.setInterval(function() {
+          $.get('{{ route('mes') }}', function (response) {
+                  var data = JSON.parse(response);
+                  grafica3.updateOptions({
+                      xaxis: {
+                          categories: data[1],
+                      },
+                      series: [data[0]]
+                  });
+              });
+      },2000);
+  </script>
+
+  <!-- Graficas de lineas año -->
+  <script>
+      var options = {
+        series: [],
+        chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      title: {
+        text: '',
+        align: 'left'
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5
+        },
+      },
+      xaxis: {
+        categories: [],
+      }
+      };
+      var grafica4 = new ApexCharts(document.querySelector("#graficYear"), options);
+      grafica4.render();
+
+      window.setInterval(function() {
+          $.get('{{ route('year') }}', function (response) {
+                  var data = JSON.parse(response);
+                  grafica4.updateOptions({
+                      xaxis: {
+                          categories: data[1],
+                      },
+                      series: [data[0]]
+                  });
+              });
+      },2000);
+  </script>
+
+  <!-- Graficas de barras Horas -->
+  <script>
+    options = {
+      chart: {
+        type: 'bar'
+      },
+      series: [{
+        data: [{
+          x: 'category A',
+          y: 10
+        }, {
+          x: 'category B',
+          y: 18
+        }, {
+          x: 'category C',
+          y: 13
+        }]
+      }]
+    }
+    var grafica5 = new ApexCharts(document.querySelector("#barHoras"), options);
+      grafica5.render();
+
+      window.setInterval(function() {
+          $.get('{{ route('dia') }}', function (response) {
+                  var data = JSON.parse(response);
+                  grafica5.updateOptions({
+                      xaxis: {
+                          categories: data[1],
+                      },
+                      series: [data[0]]
+                  });
+              });
+      },2000);
+  </script>
+  <!-- Graficas de barras Semanas -->
+  <script>
+    options = {
+      chart: {
+        type: 'bar'
+      },
+      series: [{
+        data: [{
+          x: 'category A',
+          y: 10
+        }, {
+          x: 'category B',
+          y: 18
+        }, {
+          x: 'category C',
+          y: 13
+        }]
+      }]
+    }
+    var grafica6 = new ApexCharts(document.querySelector("#barSem"), options);
+      grafica6.render();
+
+      window.setInterval(function() {
+          $.get('{{ route('semana') }}', function (response) {
+                  var data = JSON.parse(response);
+                  grafica6.updateOptions({
+                      xaxis: {
+                          categories: data[1],
+                      },
+                      series: [data[0]]
+                  });
+              });
+      },2000);
+  </script>
+  <!-- Graficas de barras Mes  -->
+  <script>
+    options = {
+      chart: {
+        type: 'bar'
+      },
+      series: [{
+        data: [{
+          x: 'category A',
+          y: 10
+        }, {
+          x: 'category B',
+          y: 18
+        }, {
+          x: 'category C',
+          y: 13
+        }]
+      }]
+    }
+    var grafica7 = new ApexCharts(document.querySelector("#barMes"), options);
+      grafica7.render();
+
+      window.setInterval(function() {
+          $.get('{{ route('mes') }}', function (response) {
+                  var data = JSON.parse(response);
+                  grafica7.updateOptions({
+                      xaxis: {
+                          categories: data[1],
+                      },
+                      series: [data[0]]
+                  });
+              });
+      },2000);
+  </script>
+  <!-- Graficas de barras Año -->
+  <script>
+    options = {
+      chart: {
+        type: 'bar'
+      },
+      series: [{
+        data: [{
+          x: 'category A',
+          y: 10
+        }, {
+          x: 'category B',
+          y: 18
+        }, {
+          x: 'category C',
+          y: 13
+        }]
+      }]
+    }
+    var grafica8 = new ApexCharts(document.querySelector("#barYear"), options);
+      grafica8.render();
+
+      window.setInterval(function() {
+          $.get('{{ route('year') }}', function (response) {
+                  var data = JSON.parse(response);
+                  grafica8.updateOptions({
+                      xaxis: {
+                          categories: data[1],
+                      },
+                      series: [data[0]]
+                  });
+              });
+      },2000);
+  </script>
+
+{{--
+   <script src="{{ asset('js/chart.min.js')}}"></script>
 
     <script src="{{ asset('js/grafica.js')}}"></script>
 
     <script src="{{ asset('js/main.js') }}"></script>
 
-    <script src="{{ asset('js/tabla.js')}}"></script>
+    <script src="{{ asset('js/tabla.js')}}"></script> --}}
 
 @endsection

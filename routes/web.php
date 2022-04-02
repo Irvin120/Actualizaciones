@@ -26,3 +26,10 @@ Route::resource('/search',TemperaturaController::class)->middleware('auth');
 
 //ruta de recursos que responda cuando se escriba en la url /usuario
 Route::resource('/usuario',UsuarioController::class)->middleware('auth');
+
+//rutas tablas miguel
+
+Route::get('/grafica1',[TemperaturaController::class,'consultaDia'])->name('dia')->middleware('auth');
+Route::get('/grafica2',[TemperaturaController::class,'consultaSemana'])->name('semana')->middleware('auth');
+Route::get('/grafica3',[TemperaturaController::class,'consultaMes'])->name('mes')->middleware('auth');
+Route::get('/grafica4',[TemperaturaController::class,'consultaYear'])->name('year')->middleware('auth');
